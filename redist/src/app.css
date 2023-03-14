@@ -1,0 +1,29 @@
+.app {
+    display: grid;
+
+    grid-template-areas:
+        "aside main main main"
+        "footer footer footer footer";
+
+    grid-gap: 1rem;
+
+    grid-template-columns: auto auto auto auto;
+
+    grid-template-rows: 90vh auto;
+}
+
+.o-aside {
+    grid-area: aside;
+}
+
+.o-aside form {
+    display: grid;
+}
+
+.o-main {
+    grid-area: main;
+}
+
+.o-footer {
+    grid-area: footer;
+}
