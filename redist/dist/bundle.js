@@ -5961,7 +5961,7 @@ module.exports = require("util");
   \********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar _require = __webpack_require__(/*! ./connection */ \"./src/connection.js\"),\n  builder = _require.builder;\nfunction App() {\n  return /*#__PURE__*/React.createElement(\"h1\", null, \"hello\");\n}\nmodule.exports = {\n  App: App\n};\n\n//# sourceURL=webpack://redist/./src/App.js?");
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar _require = __webpack_require__(/*! ./connection */ \"./src/connection.js\"),\n  builder = _require.builder;\nfunction App() {\n  React.useEffect(function () {\n    builder();\n  }, []);\n  return /*#__PURE__*/React.createElement(\"h1\", null, \"hello\");\n}\nmodule.exports = {\n  App: App\n};\n\n//# sourceURL=webpack://redist/./src/App.js?");
 
 /***/ }),
 
