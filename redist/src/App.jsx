@@ -8,13 +8,10 @@ export function App() {
   // }, []);
 
   return (
-    <>
-      <aside className="o-aside">Aside</aside>
-      <main className="o-main">
-        <div className="o-keys">conteudo</div>
-        <div className="o-values">conteudo</div>
-      </main>
+    <div className="app">
+      <aside className="o-aside"></aside>
+      <main className="o-main">Main</main>
       <footer className="o-footer">Footer</footer>
-    </>
+    </div>
   );
 }
