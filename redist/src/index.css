@@ -1,0 +1,27 @@
+body {
+    display: grid;
+
+    grid-template-areas:
+        "aside main main main"
+        "footer footer footer footer";
+
+    grid-gap: 1rem;
+
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto 100vh auto;
+}
+
+.o-aside {
+    grid-area: aside;
+    background-color: red;
+}
+
+.o-main {
+    grid-area: main;
+    background-color: blue;
+}
+
+.o-footer {
+    grid-area: footer;
+    background-color: yellow;
+}

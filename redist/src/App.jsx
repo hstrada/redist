@@ -1,12 +1,20 @@
-const React = require('react');
-const { builder } = require('./connection');
+import React from 'react';
+// import { builder } from './connection';
+import './app.css';
 
-function App() {
-  React.useEffect(() => {
-    builder();
-  }, []);
+export function App() {
+  // React.useEffect(() => {
+  //   builder();
+  // }, []);
 
-  return <h1>hello</h1>;
+  return (
+    <>
+      <aside className="o-aside">Aside</aside>
+      <main className="o-main">
+        <div className="o-keys">conteudo</div>
+        <div className="o-values">conteudo</div>
+      </main>
+      <footer className="o-footer">Footer</footer>
+    </>
+  );
 }
-
-module.exports = { App };
