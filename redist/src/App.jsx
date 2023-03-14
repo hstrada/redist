@@ -1,16 +1,17 @@
 import React from 'react';
-// import { builder } from './connection';
 import './app.css';
+import { Menu } from './components/Menu';
+import { Keys } from './components/Keys';
 
 export function App() {
-  // React.useEffect(() => {
-  //   builder();
-  // }, []);
-
   return (
     <div className="app">
-      <aside className="o-aside"></aside>
-      <main className="o-main">Main</main>
+      <aside className="o-aside">
+        <Menu />
+      </aside>
+      <main className="o-main">
+        <Keys />
+      </main>
       <footer className="o-footer">Footer</footer>
     </div>
   );

@@ -14,15 +14,16 @@
 
 .o-aside {
     grid-area: aside;
-    background: red;
+}
+
+.o-aside form {
+    display: grid;
 }
 
 .o-main {
     grid-area: main;
-    background: blue;
 }
 
 .o-footer {
     grid-area: footer;
-    background: yellow;
 }
