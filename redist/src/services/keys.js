@@ -1,7 +1,7 @@
 import { connection } from './createConnection';
 
 export const getKeys = async () => {
-  const keys = connection.keys('*');
+  const keys = await connection.keys('*');
 
   return keys;
 };
