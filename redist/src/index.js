@@ -15,6 +15,6 @@ const builder = async () => {
   result.then((item) => console.log(item));
 
   await client.quit();
-};
+}
 
-builder();
+module.exports = { builder };
