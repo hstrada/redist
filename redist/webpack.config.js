@@ -14,8 +14,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // .js and .jsx files
-        exclude: /node_modules/, // excluding the node_modules folder
+        test: /\.(jsx|js|ts|tsx)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
@@ -26,6 +26,9 @@ module.exports = {
         options: { limit: false }
       }
     ]
+  },
+  resolve: {
+    extensions: ['ts', '.js', '.jsx', 'tsx']
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -5498,6 +5498,16 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 
 /***/ }),
 
+/***/ "./src/App.jsx":
+/*!*********************!*\
+  !*** ./src/App.jsx ***!
+  \*********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar _require = __webpack_require__(/*! ./connection */ \"./src/connection.js\"),\n  builder = _require.builder;\nfunction App() {\n  React.useEffect(function () {\n    builder();\n  }, []);\n  return /*#__PURE__*/React.createElement(\"h1\", null, \"hello\");\n}\nmodule.exports = {\n  App: App\n};\n\n//# sourceURL=webpack://redist/./src/App.jsx?");
+
+/***/ }),
+
 /***/ "./node_modules/base64-js/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/base64-js/index.js ***!
@@ -5955,16 +5965,6 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ "./src/App.js":
-/*!********************!*\
-  !*** ./src/App.js ***!
-  \********************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar _require = __webpack_require__(/*! ./connection */ \"./src/connection.js\"),\n  builder = _require.builder;\nfunction App() {\n  React.useEffect(function () {\n    builder();\n  }, []);\n  return /*#__PURE__*/React.createElement(\"h1\", null, \"hello\");\n}\nmodule.exports = {\n  App: App\n};\n\n//# sourceURL=webpack://redist/./src/App.js?");
-
-/***/ }),
-
 /***/ "./src/connection.js":
 /*!***************************!*\
   !*** ./src/connection.js ***!
@@ -5981,7 +5981,7 @@ eval("/* provided dependency */ var console = __webpack_require__(/*! ./node_mod
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar ReactDOM = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\nvar _require = __webpack_require__(/*! ./App */ \"./src/App.js\"),\n  App = _require.App;\nvar rootNode = document.getElementById('root');\nvar root = ReactDOM.createRoot(rootNode);\nroot.render(React.createElement(App));\n\n//# sourceURL=webpack://redist/./src/index.js?");
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar ReactDOM = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\nvar _require = __webpack_require__(/*! ./App */ \"./src/App.jsx\"),\n  App = _require.App;\nvar rootNode = document.getElementById('root');\nvar root = ReactDOM.createRoot(rootNode);\nroot.render(React.createElement(App));\n\n//# sourceURL=webpack://redist/./src/index.js?");
 
 /***/ })
 
