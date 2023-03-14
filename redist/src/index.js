@@ -1,20 +1,7 @@
-const redis = require('redis');
+const React = require('react');
+const ReactDOM = require('react-dom/client');
+const { App } = require('./App');
 
-const builder = async () => {
-  const client = redis.createClient();
-
-  console.log('hello');
-
-  client.on('error', (err) => {
-    throw new Error(err);
-  });
-
-  await client.connect();
-
-  const result = client.keys('*');
-  result.then((item) => console.log(item));
-
-  await client.quit();
-}
-
-module.exports = { builder };
+const rootNode = document.getElementById('root');
+const root = ReactDOM.createRoot(rootNode);
+root.render(React.createElement(App));
