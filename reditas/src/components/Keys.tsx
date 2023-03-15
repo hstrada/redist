@@ -5,14 +5,14 @@ import { Value } from './Value';
 
 export const Keys = () => {
   const [keys, setKeys] = useState([]);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState<string | undefined>();
 
   const handleKeys = async () => {
     const getAllKeys = await getKeys();
     setKeys(getAllKeys);
   };
 
-  const handleKey = async (item) => {
+  const handleKey = async (item: string) => {
     const getValue = await getKey(item);
     setValue(getValue);
   };
