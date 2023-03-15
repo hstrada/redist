@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { getKey } from '../services/get';
-import { getKeys } from '../services/keys';
+import { getAll, get } from '../services/db/keys';
 import { Value } from './Value';
 
 export const Keys = () => {
@@ -8,12 +7,12 @@ export const Keys = () => {
   const [value, setValue] = useState<string | undefined>();
 
   const handleKeys = async () => {
-    const getAllKeys = await getKeys();
+    const getAllKeys = await getAll();
     setKeys(getAllKeys);
   };
 
   const handleKey = async (item: string) => {
-    const getValue = await getKey(item);
+    const getValue = await get(item);
     setValue(getValue);
   };
 

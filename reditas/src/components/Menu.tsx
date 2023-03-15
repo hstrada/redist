@@ -1,42 +1,18 @@
-import React from 'react';
-import { useState } from 'react';
-import { createConnection } from '../services/createConnection';
+import React, { useState } from 'react';
+import { Form } from './Form';
 
 export const Menu = () => {
-  const [inputs, setInputs] = useState({ host: null, port: 6379 });
+  const [modalVisibility, setModalVisibility] = useState(false);
 
-  const handleChange = (event: { target: { name: string; value: string } }) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
-    createConnection(inputs.host, inputs.port);
-  };
+  const handleModalVisibility = () => setModalVisibility(!modalVisibility);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        host url
-        <input
-          type="text"
-          name="host"
-          value={inputs.host}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        port
-        <input
-          type="number"
-          name="port"
-          value={inputs.port}
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" />
-    </form>
+    <>
+      <h1>connections</h1>
+      {/* adicionar formulario para conexao */}
+      <button onClick={handleModalVisibility}>adicionar conexão</button>
+
+      <Form visible={modalVisibility} handleOnClose={handleModalVisibility} />
+    </>
   );
 };
