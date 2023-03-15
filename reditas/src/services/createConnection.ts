@@ -1,8 +1,8 @@
-import { createClient } from 'redis';
+import { createClient, RedisClientType } from 'redis';
 
-let connection = undefined;
+let connection: RedisClientType | undefined = undefined;
 
-export const createConnection = async (host, port = 6379) => {
+export const createConnection = async (host: string, port = 6379) => {
   connection = createClient({
     url: `redis://${host}:${port}`
   });

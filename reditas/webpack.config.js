@@ -21,6 +21,11 @@ module.exports = {
         }
       },
       {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+      },
+      {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
         loader: 'url-loader',
         options: { limit: false }
@@ -32,7 +37,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['ts', '.js', '.jsx', 'tsx']
+    extensions: ['.ts', '.js', '.jsx', '.tsx']
   },
   plugins: [
     new HtmlWebpackPlugin({
