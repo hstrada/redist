@@ -29,7 +29,7 @@ export const Keys = () => {
         );
       })}
 
-      <Value keyValue={value} />
+      <Value value={value} />
     </div>
   );
 };
