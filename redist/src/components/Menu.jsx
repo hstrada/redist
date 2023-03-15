@@ -19,11 +19,11 @@ export const Menu = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        host
+        host url
         <input
           type="text"
           name="host"
-          value={inputs.host || 'localhost'}
+          value={inputs.host || ''}
           onChange={handleChange}
         />
       </label>

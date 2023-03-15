@@ -6,7 +6,7 @@ const url = require('url');
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1200,
     height: 800,
     webPreferences: {
       nodeIntegration: true,
@@ -28,7 +28,7 @@ const createWindow = () => {
   // );
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   nativeTheme.themeSource = 'dark';
 };
 

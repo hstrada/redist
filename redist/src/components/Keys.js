@@ -7,12 +7,14 @@ export const Keys = () => {
   const [keys, setKeys] = useState([]);
   const [value, setValue] = useState();
 
-  const handleKeys = () => {
-    getKeys().then((keys) => setKeys(keys));
+  const handleKeys = async () => {
+    const getAllKeys = await getKeys();
+    setKeys(getAllKeys);
   };
 
-  const handleKey = (item) => {
-    getKey(item).then((itemValue) => setValue(itemValue));
+  const handleKey = async (item) => {
+    const getValue = await getKey(item);
+    setValue(getValue);
   };
 
   return (
