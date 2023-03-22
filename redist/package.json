@@ -1,5 +1,5 @@
 {
-  "name": "reditas",
+  "name": "redist",
   "version": "1.0.0",
   "main": "electron/main.ts",
   "license": "MIT",
