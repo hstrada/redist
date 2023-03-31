@@ -1,5 +1,9 @@
 import React from 'react';
 
-export const Value = ({ value }: { value: string }) => {
+interface IValue {
+  value: string;
+}
+
+export const Value = ({ value }: IValue) => {
   return <div>{value}</div>;
 };
