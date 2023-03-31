@@ -1,7 +1,7 @@
 import React from 'react';
 import './app.css';
 import { Menu } from './components/Menu';
-import { Keys } from './components/Keys';
+import { Content } from './components/Content';
 
 export function App() {
   return (
@@ -10,7 +10,7 @@ export function App() {
         <Menu />
       </aside>
       <main className="o-main">
-        <Keys />
+        <Content />
       </main>
       <footer className="o-footer">Footer</footer>
     </div>

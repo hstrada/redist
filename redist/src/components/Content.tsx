@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { getAll, get } from '../services/db/keys';
+import Keys from '../services/db/keys';
 import { Value } from './Value';
 
-export const Keys = () => {
+export const Content = () => {
   const [keys, setKeys] = useState([]);
   const [value, setValue] = useState<string | undefined>();
 
   const handleKeys = async () => {
-    const getAllKeys = await getAll();
+    const getAllKeys = await Keys.getAll();
     setKeys(getAllKeys);
   };
 
   const handleKey = async (item: string) => {
-    const getValue = await get(item);
+    const getValue = await Keys.get(item);
     setValue(getValue);
   };
 
