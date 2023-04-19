@@ -26,14 +26,6 @@ const schema = {
 
 const store = new Store({ schema });
 
-store.set({ connection: [{ url: 'localhost', port: 6379 }] })
-const a = store.get('connection')
-console.log(a, 'aaaa')
-const c = [...(a || []), { url: 'localhost1', port: 1234 }]
-store.set('connection', c)
-const b = store.get('connection')
-console.log(b, 'bbbb')
-
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -68,7 +60,9 @@ ipcMain.on('loadStorage', (event, _arg) => {
 })
 
 ipcMain.on('setStorage', (event, _arg) => {
-  store.set('config', _arg)
+  const connections = store.get('connection')
+  const values = [...(connections || []), _arg]
+  store.set('connection', values)
 })
 
 // This method will be called when Electron has finished

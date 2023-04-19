@@ -6,7 +6,7 @@ import { getConfig } from './services/storage';
 
 export function App() {
   useEffect(() => {
-    // console.log(getConfig());
+    console.log(getConfig());
   }, []);
 
   return (
