@@ -26,6 +26,8 @@ const schema = {
 
 const store = new Store({ schema });
 
+store.delete('connection')
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -60,9 +62,11 @@ ipcMain.on('loadStorage', (event, _arg) => {
 })
 
 ipcMain.on('setStorage', (event, _arg) => {
-  const connections = store.get('connection')
-  const values = [...(connections || []), _arg]
-  store.set('connection', values)
+  const configName = _arg.configName
+  const parameters = _arg.parameters
+  const connections = store.get(configName)
+  const values = [...(connections || []), parameters]
+  store.set(configName, values)
 })
 
 // This method will be called when Electron has finished

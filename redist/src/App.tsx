@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import './app.css';
 import { Menu } from './components/Menu';
 import { Content } from './components/Content';
-import { getConfig } from './services/storage';
+import { getConfig, setConnection } from './services/storage';
 
 export function App() {
   useEffect(() => {
     console.log(getConfig());
+    // setConnection({ name: 'localhost', url: 'localhost', port: 6379 });
   }, []);
 
   return (
