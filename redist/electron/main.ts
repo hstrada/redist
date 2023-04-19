@@ -1,7 +1,38 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, nativeTheme } = require('electron');
+const { app, BrowserWindow, nativeTheme, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
+const Store = require('electron-store');
+
+const schema = {
+  connection: {
+    type: 'array',
+    items: {
+      type: 'object',
+      properties: {
+        name: {
+          type: 'string'
+        },
+        url: {
+          type: 'string'
+        },
+        port: {
+          type: 'number'
+        }
+      }
+    }
+  }
+}
+
+const store = new Store({ schema });
+
+store.set({ connection: [{ url: 'localhost', port: 6379 }] })
+const a = store.get('connection')
+console.log(a, 'aaaa')
+const c = [...(a || []), { url: 'localhost1', port: 1234 }]
+store.set('connection', c)
+const b = store.get('connection')
+console.log(b, 'bbbb')
 
 const createWindow = () => {
   // Create the browser window.
@@ -28,9 +59,17 @@ const createWindow = () => {
   // );
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   nativeTheme.themeSource = 'dark';
 };
+
+ipcMain.on('loadStorage', (event, _arg) => {
+  event.returnValue = store.get(_arg)
+})
+
+ipcMain.on('setStorage', (event, _arg) => {
+  store.set('config', _arg)
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
