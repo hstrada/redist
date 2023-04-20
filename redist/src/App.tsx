@@ -3,11 +3,17 @@ import './app.css';
 import { Menu } from './components/Menu';
 import { Content } from './components/Content';
 import { getConfig, setConnection } from './services/storage';
+import { uuid } from './services/utils/uuid';
 
 export function App() {
   useEffect(() => {
     console.log(getConfig());
-    // setConnection({ name: 'localhost', url: 'localhost', port: 6379 });
+    // setConnection({
+    //   id: uuid(),
+    //   name: '[dev] localhost',
+    //   url: 'localhost',
+    //   port: 6379
+    // }); 
   }, []);
 
   return (

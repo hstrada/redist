@@ -7,6 +7,7 @@ const LOAD_STORAGE_METHOD = 'loadStorage'
 const SET_CONNECTION_STORAGE_METHOD = 'setStorage'
 
 interface ConnectionParameters {
+    id: string;
     name: string;
     url: string;
     port: number;

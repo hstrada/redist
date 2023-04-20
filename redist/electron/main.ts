@@ -10,6 +10,9 @@ const schema = {
     items: {
       type: 'object',
       properties: {
+        id: {
+          type: 'string'
+        },
         name: {
           type: 'string'
         },
@@ -25,8 +28,6 @@ const schema = {
 }
 
 const store = new Store({ schema });
-
-store.delete('connection')
 
 const createWindow = () => {
   // Create the browser window.
