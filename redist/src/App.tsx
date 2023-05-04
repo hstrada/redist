@@ -13,7 +13,7 @@ export function App() {
     //   name: '[dev] localhost',
     //   url: 'localhost',
     //   port: 6379
-    // }); 
+    // });
   }, []);
 
   return (

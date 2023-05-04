@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Keys from '../services/db/keys';
-import { Value } from './Value';
+import React, { useState } from "react";
+import Keys from "../../services/db/keys";
+import { Value } from "./Value";
 
 export const Content = () => {
   const [keys, setKeys] = useState([]);

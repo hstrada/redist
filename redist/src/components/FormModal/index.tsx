@@ -1,15 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
-import { createConnection } from '../services/db/createConnection';
-import './form.css';
+import React from "react";
+import { useState } from "react";
+import { createConnection } from "../../services/db/createConnection";
+import "./index.css";
 
-interface IForm {
+interface IFormModal {
   visible?: boolean;
   handleOnClose: () => void;
 }
 
-export const Form = ({ visible = false, handleOnClose }: IForm) => {
-  const [inputs, setInputs] = useState({ host: null, port: 6379, name: '' });
+export const FormModal = ({ visible = false, handleOnClose }: IFormModal) => {
+  const [inputs, setInputs] = useState({ host: null, port: 6379, name: "" });
 
   const handleFormChange = (event: {
     target: { name: string; value: string };
@@ -25,7 +25,7 @@ export const Form = ({ visible = false, handleOnClose }: IForm) => {
     handleOnClose();
   };
 
-  const showModal = visible ? 'block' : 'none';
+  const showModal = visible ? "block" : "none";
 
   return (
     <div className="modal" style={{ display: showModal }}>
