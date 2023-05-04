@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { FormModal } from "../FormModal";
+import React, { useContext, useState } from 'react';
+import { FormModal } from '../FormModal';
+import {
+  StorageContext,
+  StorageContextType
+} from '../../context/StorageContextType';
 
 export const Menu = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
+  const { connections } = useContext<StorageContextType>(StorageContext);
+
+  console.log(connections, "connections");
 
   const handleModalVisibility = () => setModalVisibility(!modalVisibility);
 
