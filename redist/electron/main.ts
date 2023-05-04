@@ -3,29 +3,7 @@ const { app, BrowserWindow, nativeTheme, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const Store = require('electron-store');
-
-const schema = {
-  connection: {
-    type: 'array',
-    items: {
-      type: 'object',
-      properties: {
-        id: {
-          type: 'string'
-        },
-        name: {
-          type: 'string'
-        },
-        url: {
-          type: 'string'
-        },
-        port: {
-          type: 'number'
-        }
-      }
-    }
-  }
-}
+const schema = require('./schema')
 
 const store = new Store({ schema });
 
