@@ -10,7 +10,7 @@ export function App() {
     console.log(getConfig());
     // setConnection({
     //   id: uuid(),
-    //   name: '[dev] localhost',
+    //   name: '[stg] localhost',
     //   url: 'localhost',
     //   port: 6379
     // });
