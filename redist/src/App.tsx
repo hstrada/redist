@@ -1,7 +1,7 @@
-import React from 'react';
-import './app.css';
-import { Menu } from './components/Menu';
-import { Content } from './components/Content';
+import React from "react";
+import "./app.css";
+import { Menu } from "./components/Menu";
+import { Content } from "./components/Content";
 
 export function App() {
   return (
