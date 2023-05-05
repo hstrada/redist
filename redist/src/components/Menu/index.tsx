@@ -9,7 +9,7 @@ export const Menu = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const { connections } = useContext<StorageContextType>(StorageContext);
 
-  console.log(connections, "connections");
+  console.log(connections, 'connections');
 
   const handleModalVisibility = () => setModalVisibility(!modalVisibility);
 

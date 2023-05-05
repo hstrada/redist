@@ -1,29 +1,38 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getConfig } from '../services/storage';
+import { getConfig, setConnection } from '../services/storage';
+import { Connection } from './models/Storage';
+import { connectDb } from '../services/db/createConnection';
 
 export interface StorageContextType {
-  connections: Storage[];
-  //   addConnection(name: string, url: string, port: number): void;
+  connections: Connection[];
+  createConnection(name: string, url: string, port: number): void;
   //   removeConnection(storage: Storage): void;
   //   updateConnection(storage: Storage): void;
 }
 
 export const StorageContext = createContext<StorageContextType>({
-  connections: []
-  //   addConnection: () => {},
+  connections: [],
+  createConnection: () => {}
   //   removeConnection: () => {},
   //   updateConnection: () => {}
 });
 
 const StorageProvider = (props: any) => {
-  const [storageConnections, setStorageConnections] = useState<Storage[]>();
+  const [connections, setConnections] = useState<Connection[]>();
+
+  const createConnection = (name: string, url: string, port: number) => {
+    const connection: Connection = new Connection(name, url, port);
+    setConnection(connection);
+    connectDb(url, port);
+    setConnections(getConfig());
+  };
 
   useEffect(() => {
-    setStorageConnections(getConfig());
+    setConnections(getConfig());
   }, []);
 
   return (
-    <StorageContext.Provider value={{ connections: storageConnections }}>
+    <StorageContext.Provider value={{ connections, createConnection }}>
       {props.children}
     </StorageContext.Provider>
   );
