@@ -2,7 +2,7 @@
 const { app, BrowserWindow, nativeTheme } = require('electron');
 const path = require('path');
 const url = require('url');
-require('../src/services/storage/store')
+require('./storage/store')
 
 const createWindow = () => {
   // Create the browser window.
