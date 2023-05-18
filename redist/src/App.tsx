@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './app.css';
 import { Menu } from './components/Menu';
 import { Content } from './components/Content';
 import StorageProvider from './context/StorageContextType';
-// import { uuid } from './services/utils/uuid';
 
 export function App() {
   return (

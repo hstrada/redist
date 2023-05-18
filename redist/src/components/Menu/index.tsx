@@ -7,16 +7,24 @@ import {
 
 export const Menu = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
-  const { connections } = useContext<StorageContextType>(StorageContext);
-
-  console.log(connections, 'connections');
+  const { connections, updateConnection } =
+    useContext<StorageContextType>(StorageContext);
 
   const handleModalVisibility = () => setModalVisibility(!modalVisibility);
+
+  const renderConnections = () =>
+    connections?.map((connection) => (
+      <li key={connection.id} onClick={() => updateConnection(connection.id)}>
+        {connection.name}
+      </li>
+    ));
 
   return (
     <>
       <h1>Connections</h1>
-      {/* adicionar formulario para conexao */}
+
+      <ul>{renderConnections()}</ul>
+
       <button onClick={handleModalVisibility}>Add connection</button>
 
       <FormModal
