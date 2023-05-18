@@ -15,3 +15,11 @@ ipcMain.on('setStorage', (event, _arg) => {
   const values = [...(connections || []), parameters];
   store.set(configName, values);
 });
+
+ipcMain.on('removeFromStorage', (event, _arg) => {
+  const configName = _arg.configName;
+  const uuid = _arg.uuid;
+  const connections = store.get(configName);
+  const values = connections.filter((item) => item.id !== uuid);
+  store.set(configName, values);
+});
