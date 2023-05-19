@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Keys from "../../services/db/keys";
-import { Value } from "./Value";
+import React, { useState } from 'react';
+import Keys from '../../services/db/keys';
+import { Value } from './Value';
+import './index.css';
 
 export const Content = () => {
   const [keys, setKeys] = useState([]);
@@ -17,16 +18,18 @@ export const Content = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleKeys}>List Keys</button>
+    <div className="content">
+      <div>
+        <button onClick={handleKeys}>List Keys</button>
 
-      {keys.map((key) => {
-        return (
-          <li key={key} onClick={() => handleKey(key)}>
-            {key}
-          </li>
-        );
-      })}
+        {keys.map((key) => {
+          return (
+            <li key={key} onClick={() => handleKey(key)}>
+              {key}
+            </li>
+          );
+        })}
+      </div>
 
       <Value value={value} />
     </div>

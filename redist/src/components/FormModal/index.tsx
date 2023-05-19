@@ -1,7 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { createConnection } from "../../services/db/createConnection";
-import "./index.css";
+import React, { useContext } from 'react';
+import { useState } from 'react';
+import './index.css';
+import {
+  StorageContextType,
+  StorageContext
+} from '../../context/StorageContextType';
 
 interface IFormModal {
   visible?: boolean;
@@ -9,7 +12,8 @@ interface IFormModal {
 }
 
 export const FormModal = ({ visible = false, handleOnClose }: IFormModal) => {
-  const [inputs, setInputs] = useState({ host: null, port: 6379, name: "" });
+  const [inputs, setInputs] = useState({ host: null, port: 6379, name: '' });
+  const { createConnection } = useContext<StorageContextType>(StorageContext);
 
   const handleFormChange = (event: {
     target: { name: string; value: string };
@@ -21,11 +25,11 @@ export const FormModal = ({ visible = false, handleOnClose }: IFormModal) => {
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    createConnection(inputs.host, inputs.port);
+    createConnection(inputs.name, inputs.host, inputs.port);
     handleOnClose();
   };
 
-  const showModal = visible ? "block" : "none";
+  const showModal = visible ? 'block' : 'none';
 
   return (
     <div className="modal" style={{ display: showModal }}>

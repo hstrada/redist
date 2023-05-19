@@ -2,6 +2,7 @@
 const { app, BrowserWindow, nativeTheme } = require('electron');
 const path = require('path');
 const url = require('url');
+require('./storage/store')
 
 const createWindow = () => {
   // Create the browser window.
@@ -28,7 +29,7 @@ const createWindow = () => {
   // );
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   nativeTheme.themeSource = 'dark';
 };
 

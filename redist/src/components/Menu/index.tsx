@@ -1,15 +1,30 @@
-import React, { useState } from "react";
-import { FormModal } from "../FormModal";
+import React, { useContext, useState } from 'react';
+import { FormModal } from '../FormModal';
+import {
+  StorageContext,
+  StorageContextType
+} from '../../context/StorageContextType';
 
 export const Menu = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
+  const { connections, updateConnection, removeConnection } =
+    useContext<StorageContextType>(StorageContext);
 
   const handleModalVisibility = () => setModalVisibility(!modalVisibility);
+
+  const renderConnections = () =>
+    connections?.map((connection) => (
+      <li key={connection.id} onClick={() => updateConnection(connection.id)}>
+        {connection.name}
+      </li>
+    ));
 
   return (
     <>
       <h1>Connections</h1>
-      {/* adicionar formulario para conexao */}
+
+      <ul>{renderConnections()}</ul>
+
       <button onClick={handleModalVisibility}>Add connection</button>
 
       <FormModal
